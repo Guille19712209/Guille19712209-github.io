@@ -1,0 +1,36 @@
+{
+    "name": "New File!",
+    "theme": "black",
+    "cusstomTheme": {
+      "backgroundColor": "",
+      "background": "",
+      "node": {
+        "color": "",
+        "borderColor": ""
+      },
+      "edge": {
+        "borderColor": ""
+      },
+      "color": {
+        "color": ""
+      },
+      "title": {
+        "color": ""
+      },
+      "txtcolor": {
+        "color": ""
+      }
+    },
+    "properties": {
+      "currency": "usd",
+      "decimals": 0,
+      "symbol": "u$s",
+      "date": "2021-01-01",
+      "tyme-unit": "",
+      "periods": 1
+    },
+    "nodeDataArray": [
+    ],
+    "edgeDataArray": [
+    ]
+  }

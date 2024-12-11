@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/cytoscape@latest/dist/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/layout-base/layout-base.js"></script>
+    <script src="https://unpkg.com/cytoscape-fcose/cytoscape-fcose.js"></script>
+    <script src="https://unpkg.com/cose-base/cose-base.js"></script>
+    <script src="https://unpkg.com/popper.js@1.14.7/dist/umd/popper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape-popper@1.0.4/cytoscape-popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@4.0.1/umd/index.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.js"></script>
+    <script src="https://unpkg.com/cytoscape-node-html-label@latest/dist/cytoscape-node-html-label.js"></script>
+    <script src="https://unpkg.com/cytoscape-fcose/cytoscape-fcose.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <script src="./lib/utils.js"></script>
+    <script src="./lib/quanboard.js"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="./quanboard.css" rel="stylesheet" />
+  </head>
+  <body onload="init()">
+    <h1 id="title-label"></h1>
+    <div id="cy"></div>
+    <!-- MAIN BUTTONS -->
+    <div id="buttons">
+      <button id="new-button"></button>
+      <button id="qb-button"></button>
+      <button id="zoom-more-button"></button>
+      <button id="zoom-less-button"></button>
+      <button id="eye-button"></button>
+      <button id="file-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar"></button>
+      <input type="range" class="form-range" id="proyection-control" min="1" max="1" step="1" value="1" />
+      <span id="time-unit">Time</span>
+      <span id="selected-period">1</span>
+    </div>
+    <!-- EDIT NODE MODAL -->
+    <div class="modal fade" id="edit-node" tabindex="-1" aria-labelledby="edit-node-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="alertPlaceholder"></div>
+          <div class="modal-header">
+            <h1 class="modal-title fs-6" id="edit-node-label"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs" id="edit-node-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="edit-node-tab-data" data-bs-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="true">Data</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="edit-node-tab-value" data-bs-toggle="tab" href="#value" role="tab" aria-controls="value" aria-selected="false">Values</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="edit-node-tab-rules" data-bs-toggle="tab" href="#rules" role="tab" aria-controls="rules" aria-selected="false">Rules</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="edit-node-tab-style" data-bs-toggle="tab" href="#style" role="tab" aria-controls="style" aria-selected="false">Style</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="edit-node-tab-notes" data-bs-toggle="tab" href="#notes" role="tab" aria-controls="notes" aria-selected="false">Notes</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <!--DATA TAB-->
+              <div class="tab-pane fade show active p-3" id="data" role="tabpanel" aria-labelledby="tab-data">
+                <form class="row g-3">
+                  <input type="hidden" id="edit-node-id"/>
+                  <div class="col-md-3">
+                    <label for="edit-node-title" class="col-form-label">Title:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" id="edit-node-title" placeholder="Only if apply!" />
+                  </div>
+                  <div class="col-md-3">
+                    <label for="edit-node-name" class="col-form-label">Name:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" id="edit-node-name" placeholder="Name of this object" />
+                  </div>
+                  <div class="col-md-3">
+                    <label for="edit-node-parent" class="col-form-label">Parent:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <select class="form-select" id="edit-node-parent">
+                      <option value="">Select parent object</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="edit-node-kind" class="col-form-label">Kind:</label>
+                  </div>
+                  <div class="col-md-9">
+                    <select class="form-select" id="edit-node-kind">
+                      <option value="$">$</option> 
+                      <option value="m">m</option>
+                      <option value="m2">m2</option>
+                      <option value="gr">gr</option>
+                      <option value="kg">kg</option>
+                      <option value="ton">ton</option>
+                      <option value="%">%</option>
+                      <option value="♥">♥</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <!-- VALUES TAB-->
+              <div class="tab-pane fade p-3" id="value" role="tabpanel" aria-labelledby="tab-value">
+                <form class="row g-3">
+                  <div class="col-md-4">
+                    <label for="edit-node-value-type" class="col-form-label">Type of Value:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-select" id="edit-node-value-type">
+                      <option value="constant">Constant</option>
+                      <option value="serie">Serie of values</option>
+                      <option value="formula">Formula</option>
+                      <option value="external">External source</option>
+                      <option value="ia">IA Prompt</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-value-data" class="col-form-label" id="edit-node-value-data-label">Define</label>
+                  </div>
+                  <div class="col-md-8">
+                    <textarea class="form-control" id="edit-node-value-data" row="2"></textarea>
+                  </div>
+                </form>
+              </div>
+              <!--RULES TAB-->
+              <div class="tab-pane fade p-3" id="rules" role="tabpanel" aria-labelledby="tab-rules">
+                <form class="row g-3">
+                  <div class="col-md-4">
+                    <label for="edit-node-min-value" class="col-form-label">Min value:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="number" class="form-control" id="edit-node-min-value" placeholder="Lowest value allowed" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-max-value" class="col-form-label">Max value:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="number" class="form-control" id="edit-node-max-value" placeholder="Highest value allowed" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-ste-value" class="col-form-label">Step:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="number" class="form-control" id="edit-node-step-value" placeholder="Growth step" />
+                  </div>
+                </form>
+              </div>
+              <!--STYLE TAB-->
+              <div class="tab-pane fade p-3" id="style" role="tabpanel" aria-labelledby="tab-style">
+                <form class="row g-3">
+
+                  <div class="col-md-4">
+                    <label for="edit-node-shape" class="col-form-label">Shape:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-select" id="edit-node-shape">
+                      <option value="ellipse">Circle</option>
+                      <option value="barrel">Barrel</option>
+                      <option value="hexagon">Hexagon</option>
+                      <option value="pentagon">Pentagon</option>
+                      <option value="rectangle">Rectangle</option>
+                      <option value="square">Square</option>
+                      <option value="star">Star</option>
+                      <option value="triangle">Triangle</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-text-color" class="form-label" style="padding: 8px">Text:</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="color" class="form-control form-control-color" id="edit-node-text-color" value="#ff0000" title="text color" style="width: 40px; height: 40px" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-color" class="form-label" style="padding: 8px">Object:</label>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="color" class="form-control form-control-color" id="edit-node-color" value="rgb(1,1,1,1)" title="Background color" style="width: 40px; height: 40px" />
+                  </div>
+                  <div class="col-md-3">
+                    <label for="edit-node-opacity" class="form-label" style="padding-top: 10px"> % Opacity</label>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="number" class="form-control" id="edit-node-opacity" min="0" max="100" value="100" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-link-color" class="form-label" style="padding: 8px">Links:</label>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="color" class="form-control form-control-color" id="edit-node-link-color" value="rgb(1,1,1,1)" title="Link color" style="width: 40px; height: 40px" />
+                  </div>
+                  <div class="col-md-4">
+                    <label for="edit-node-link-auto" class="form-label" style="padding-top: 10px">Auto +/-</label>
+                  </div>
+                  <div class="col-md-1">
+                    <input type="checkbox" class="form-check-input" style="margin-top: 8px" id="edit-node-link-auto" />
+                  </div>
+                </form>
+              </div>
+              <!--NOTES TAB-->
+              <div class="tab-pane fade p-3" id="notes" role="tabpanel" aria-labelledby="tab-notes">
+                <form class="row g-3">
+                  <div class="col-md-12">
+                    <textarea class="form-control" id="edit-node-notes" rows="5" placeholder="Object Comments"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer p-3">
+            <button type="button" class="btn btn-danger" id="edit-node-button-delete">Delete!</button>
+            <button type="button" class="btn btn-primary" id="value-series">View in time line</button>
+            <button type="button" class="btn btn-primary" id="edit-node-button-save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROYECTION MODAL -->
+    <div class="modal fade" id="proyection-modal" tabindex="-1" aria-labelledby="proyection-modal-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-6" id="proyection-modal-label">PROYECTION</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="periods" class="col-form-label">Starting date:</label>
+              </div>
+              <div class="col-md-8">
+                <input type="date" class="form-control" id="date" name="date" />
+              </div>
+              <div class="col-md-4">
+                <label for="unit" class="col-form-label">Unit:</label>
+              </div>
+              <div class="col-md-8">
+                <select class="form-select" id="unit">
+                  <option selected>Time unit</option>
+                  <option value="Year">Year</option>
+                  <option value="Month">Month</option>
+                  <option value="Week">Week</option>
+                  <option value="Day">Day</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="periods" class="col-form-label">Periods:</label>
+              </div>
+              <div class="col-md-8">
+                <input type="number" class="form-control" id="periods" value="1" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer p-3">
+            <button type="button" class="btn btn-secondary" id="sheet-view">Sheet view</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PROYECTION SHEET  -->
+    <div class="modal fade" id="proyection-sheet" tabindex="-1" aria-labelledby="proyection-sheet" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="proyectionSheetLabel">Proyection Values</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div style="max-height: 400px; overflow: auto">
+              <table class="table table-striped">
+                <tr id="tableHeader"></tr>
+                <div class="modal-content">
+                  <h7 class="modal-content" id="proyectionUnitLabel" style="text-align: center; height: 1.5em">unit</h7>
+                </div>
+                <tbody id="tableBody">
+                  <tr id="tableRow"></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="sheet-import">import</button>
+            <button type="button" class="btn btn-secondary" id="sheet-export">Export</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- VALUES SERIES MODAL  -->
+    <div class="modal fade" id="value-series-modal" tabindex="-1" aria-labelledby="value-series-modal" aria-hidden="true">
+      <div class="modal-dialog modal-xl" style="z-index: 1000000">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="valueSeriesLabel">Proyection Values</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div style="max-height: 400px; overflow: auto">
+              <table class="table table-striped">
+                <thead>
+                  <tr id="valuesTableHeader"></tr>
+                  <div class="modal-content">
+                    <h7 class="modal-content" id="valueSeriesUnitLabel" style="text-align: center; height: 1.5em">unit</h7>
+                  </div>
+                </thead>
+                <tbody id="valuesTableBody" class="modal-body"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="values-import">import</button>
+            <button type="button" class="btn btn-secondary" id="values-export">Export</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FILE SIDEBAR TAB -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasSidebarLabel1"></h5>
+        <h5 id="offcanvasSidebarLabel2" style="font-size: small; font-weight: 100" margin-left="0px" text-align="right">V1.0</h5>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="nav nav-tabs" id="edit-node-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="menu-tab-model" data-bs-toggle="tab" href="#menu-model" role="tab" aria-controls="file" aria-selected="active">Model</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="menu-tab-style" data-bs-toggle="tab" href="#menu-settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="menu-tab-style" data-bs-toggle="tab" href="#menu-style" role="tab" aria-controls="style" aria-selected="false">Style</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="menu-tab-notes" data-bs-toggle="tab" href="#menu-notes" role="tab" aria-controls="notes" aria-selected="false">Notes</a>
+          </li>
+        </ul>
+        <!-- MODEL TAB -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active p-3" id="menu-model" role="tabpanel" aria-labelledby="menu-file">
+            <a class="nav-link" href="#" id="menu-new-file">New</a>
+            <a class="nav-link" href="#" id="menu-load-file">Open</a>
+            <a class="nav-link" href="#" id="menu-save-file">Duplicate</a>
+
+          </div>
+        </div> 
+        <!-- SETTINGS TAB -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade p-3" id="menu-settings" role="tabpanel" aria-labelledby="menu-settings">
+          <h6 style="padding-left: 0px; padding-top: 15px;  padding-bottom: 15px;">Formats</h6>
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="numbers-format" class="col-form-label">Numbers:</label>
+              </div>
+              <div class="col-md-8">
+              <select class="form-select" id="numbers-format">
+                <option selected>Define</option>
+                <option value="1">#.###</option>
+                <option value="2">#.###,#</option>
+                <option value="3">#.###,##</option>
+                <option value="4">#.###,###</option>
+                <option value="5">#.###,####</option>
+                <option value="6">####</option>
+                <option value="7">####,#</option>
+                <option value="8">####,##</option>
+                <option value="9">####,###</option>
+                <option value="10">####,####</option>
+              </select>
+            </div>
+           
+              <div class="col-md-4">
+                <label for="date-format" class="col-form-label">Dates:</label>
+              </div>
+              <div class="col-md-8">
+                <select class="form-select" id="Date-format">
+                  <option selected>Define</option>
+                  <option value="1">MM-DD-YY</option>
+                  <option value="2">MMM-DD-YY</option>
+                  <option value="3">DD-MM-YY</option>
+                  <option value="4">DD-MMM-YY</option>
+                  <option value="5">MM-YYYY</option>
+                  <option value="6">MMM-YYYY</option>
+                  <option value="7">MM-YY</option>
+                  <option value="8">MMM-YY</option>
+                </select>
+                </div>
+              <div class="col-md-4">
+                <label for="Currency-format" class="col-form-label">Currency:</label>
+              </div>
+              <div class="col-md-8">
+                <select class="form-select" id="Currency-format">
+                  <option selected>Define</option>
+                  <option value="1">$</option>
+                  <option value="2">€</option>
+                  <option value="3">¥</option>
+                  <option value="4">£</option>
+                  <option value="5">¢</option>
+                </select>
+                </div>
+            </form>
+          </div>
+        </div> 
+        <!--STYLE TAB -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade p-3" id="menu-style" role="tabpanel" aria-labelledby="menu-style">
+          <h6 style="padding-left: 0px; padding-top: 15px; padding-bottom: 15px;">Preseted styles</h6>
+            <form class="row g-3" style="align-items: center;">
+              <div class="col-md-4">
+                <label id="theme-greenboard-label" class="form-label" style="padding: 8px">Greenboard:</label>
+              </div>
+              <div class="theme-container">
+                <img src="./assets/greenboard.png" alt="caca" class="theme-image" />
+                <div class="theme-text-white">Aa</div>
+              </div>
+              <div class="col-md-4">
+                <label id="theme-whiteboard-label" class="form-label" style="padding: 8px">Whiteboard:</label>
+              </div>
+              <div class="theme-container">
+                <img src="./assets/whiteboard.png" alt="caca" class="theme-image" />
+                <div class="theme-text-black">Aa</div>
+              </div>
+              <div class="col-md-4">
+                <label id="theme-blackboard-label" class="form-label" style="padding: 8px">Blackboard:</label>
+              </div>
+              <div class="theme-container">
+                <img src="./assets/blackboard.png" alt="caca" class="theme-image" />
+                <div class="theme-text-white">Aa</div>
+              </div>
+            </form>  
+            <hr>
+        <!-- CUSTOM STYLE START HERE-->
+          <h6 style="padding-left: 0px; padding-top: 15px;  padding-bottom: 15px;">Custom style</h6>
+            <form class="row g-3">
+              <div class="col-md-4">
+                <label for="custom-theme-background-color" class="form-label" style="padding: 8px">Background</label>
+              </div>
+              <div class="col-md-2">
+                <input type="color" class="form-control form-control-color" id="custom-theme-background-color" value="#ff0000" title="text color" style="width: 40px; height: 40px" />
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="offcanvas" aria-label="loadImage">Load image</button>
+              </div>
+              <div class="col-md-4">
+                <label for="custom-theme-text-color" class="form-label" style="padding: 8px">Texts:</label>
+              </div>
+              <div class="col-md-8">
+                <input type="color" class="form-control form-control-color" id="custom-theme-text-color" value="#ff0000" title="text color" style="width: 40px; height: 40px" />
+              </div>
+              <div class="col-md-4">
+                <label for="custom-theme-object-color" class="form-label" style="padding: 8px">Objects:</label>
+              </div>
+              <div class="col-md-2">
+                <input type="color" class="form-control form-control-color" id="custom-theme-object-Color" value="rgb(1,1,1,1)" title="Background color" style="width: 40px; height: 40px" />
+              </div>
+              <div class="col-md-3">
+                <input type="number" class="form-control" id="custom-theme-object-opacity" min="0" max="100" value="100" style="padding-right: 0px;">
+              </div>
+              <div class="col-md-3">
+                <label for="custom-theme-object-opacity" class="form-label" style="padding-top: 10px">%</label>
+              </div>
+              <div class="col-md-4">
+                <label for="custom-theme-link-color" class="form-label" style="padding: 8px">Links:</label>
+              </div>
+              <div class="col-md-2">
+                <input type="color" class="form-control form-control-color" id="custom-theme-link-color" value="rgb(1,1,1,1)" title="Link color" style="width: 40px; height: 40px" />
+              </div>
+              <div class="col-md-1">
+                <input type="checkbox" class="form-check-input" style="margin-top: 8px" id="custom-theme-link-auto" />
+              </div>
+              <div class="col-md-4">
+                <label for="custom-theme-link-auto" class="form-label" style="padding-top: 10px">Auto +/-</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- TAB MODEL NOTES -->
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade p-3" id="menu-notes" role="tabpanel" aria-labelledby="menu-notes">
+              <form class="row g-3">
+                <div class="col-md-12">
+                  <textarea class="form-control" id="model-notes" rows="10" placeholder="Version Comments"></textarea>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>  
+      <!-- FOOTER OFFCANVAS-->
+      <div class="offcanvas-footer" style="border-top: 0px;">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="offcanvas" aria-label="ok">OK</button>
+      </div>
+      <div class="offcanvas-footer">
+        
+        <form class="row g-3">
+            <div class="col-md-2">
+                  <img src="./assets/greenboard.png" alt="caca" class="user-avatar">
+            </div>
+            <div class="col-md-4" style="display: flex; font-weight: 400; font-size: medium; justify-content: left; align-items: center;">
+                <label id="user-name">User Name</label>   
+            </div>   
+            <div class="col-md-6" >
+              <button type="button" class="btn btn-primary"aria-label="close-session" id="close-session" style="align-items: center; margin-top: 5px;">Close session</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

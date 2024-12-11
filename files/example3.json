@@ -1,0 +1,239 @@
+{
+    "name": "Hello world 3!",
+    "theme": "",
+    "cusstomTheme": {
+      "backgroundColor": "",
+      "background": "",
+      "node": {
+        "color": "",
+        "borderColor": ""
+      },
+      "edge": {
+        "borderColor": ""
+      },
+      "color": {
+        "color": ""
+      },
+      "title": {
+        "color": ""
+      },
+      "txtcolor": {
+        "color": ""
+      }
+    },
+    "nodeDataArray": [
+      {
+        "data": {
+          "id": "productOne",
+          "name": "Product ONE",
+          "value": 17000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#5E989C",
+          "title": "PRODUCT ONE"
+        }
+      },
+      {
+        "data": {
+          "id": "productOne.Sales",
+          "name": "Sales",
+          "value": 27000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#456F49"
+        }
+      },
+      {
+        "data": {
+          "id": "productOne.DirectCost",
+          "name": "Direct Cost",
+          "value": -10000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#B45757"
+        }
+      },
+      {
+        "data": {
+          "id": "productTwo",
+          "name": "Product TWO",
+          "value": 7000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#5E989C",
+          "title": "PRODUCT TWO"
+        }
+      },
+      {
+        "data": {
+          "id": "productTwo.Sales",
+          "name": "Sales",
+          "value": 12000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#456F49"
+        }
+      },
+      {
+        "data": {
+          "id": "productTwo.DirectCost",
+          "name": "Direct Cost",
+          "value": -5000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#B45757"
+        }
+      },
+      {
+        "data": {
+          "id": "income",
+          "name": "Income",
+          "value": 24000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#456F49"
+        }
+      },
+      {
+        "data": {
+          "id": "saleTaxes",
+          "name": "Sale Taxes",
+          "value": -2000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#B45757",
+          "title": "TAXES"
+        }
+      },
+      {
+        "data": {
+          "id": "resultEBT",
+          "name": "Result EBT",
+          "value": 10000,
+          "type": "currency",
+          "shape": "square",
+          "currency": "usd",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#FD9536",
+          "title": "RESULT"
+        }
+      },
+      {
+        "data": {
+          "id": "indirectCosts",
+          "name": "Indirect Costs",
+          "value": -12000,
+          "type": "currency",
+          "currency": "usd",
+          "shape": "circle",
+          "symbol": "u$s",
+          "decimals": 0,
+          "color": "#B45757"
+        }
+      }
+    ],
+    "edgeDataArray": [
+      {
+        "data": {
+          "source": "productOne.Sales",
+          "target": "productOne",
+          "value": 27000
+        }
+      },
+      {
+        "data": {
+          "source": "productOne.DirectCost",
+          "target": "productOne",
+          "value": -10000
+        }
+      },
+      {
+        "data": {
+          "source": "productOne.Sales",
+          "target": "saleTaxes",
+          "value": 27000
+        }
+      },
+      {
+        "data": {
+          "source": "productOne",
+          "target": "income",
+          "value": 17000
+        }
+      },
+      {
+        "data": {
+          "source": "productTwo.Sales",
+          "target": "productTwo",
+          "value": 12000
+        }
+      },
+      {
+        "data": {
+          "source": "productTwo.DirectCost",
+          "target": "productTwo",
+          "value": -5000
+        }
+      },
+      {
+        "data": {
+          "source": "productTwo.Sales",
+          "target": "saleTaxes",
+          "value": 7000
+        }
+      },
+      {
+        "data": {
+          "source": "productTwo",
+          "target": "income",
+          "value": 17000
+        }
+      },
+      {
+        "data": {
+          "source": "income",
+          "target": "resultEBT",
+          "value": 24000
+        }
+      },
+      {
+        "data": {
+          "source": "indirectCosts",
+          "target": "resultEBT",
+          "value": -12000
+        }
+      },
+      {
+        "data": {
+          "source": "saleTaxes",
+          "target": "resultEBT",
+          "value": -2000
+        }
+      }
+    ]
+  }
