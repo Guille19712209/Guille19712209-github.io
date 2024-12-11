@@ -1,0 +1,16 @@
+{
+    "defaultValues": {
+        "theme": "green",
+        "lang": "en",
+        "currency": "USD",
+        "timezone": "UTC",
+        "dateFormat": "YYYY-MM-DD",
+        "timeFormat": "HH:mm:ss",
+        "dateTimeFormat": "YYYY-MM-DD HH:mm:ss",
+        "numberFormat": "0,0.00",
+        "decimalPlaces": 2,
+        "decimalSeparator": ".",
+        "thousandsSeparator": ",",
+        "currencySymbol": "$"
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "green": {
+      "backgroundColor": "",
+      "backgroundImage": "./assets/greenboard.png",
+      "node": {
+        "color": "#fff",
+        "borderColor": "#fff"
+      },
+      "edge": {
+        "borderColor": "#fff"
+      },
+      "color": {
+        "color": "#fff"
+      },
+      "title": {
+        "color": "#fff"
+      },
+      "txtcolor": {
+        "color": "#ffffff"
+      }
+    },
+    "white": {
+      "backgroundColor": "",
+      "backgroundImage": "./assets/whiteboard.png",
+      "node": {
+        "color": "#000",
+        "borderColor": "#000"
+      },
+      "edge": {
+        "borderColor": "#000"
+      },
+      "title": {
+        "color": "#000"
+      },
+      "txtcolor": {
+        "color": "#000000"
+      }
+    },
+    "black": {
+      "backgroundColor": "",
+      "backgroundImage": "./assets/blackboard.png",
+      "node": {
+        "color": "#fff",
+        "borderColor": "#fff"
+      },
+      "edge": {
+        "borderColor": "#fff"
+      },
+      "title": {
+        "color": "#fff"
+      },
+      "txtcolor": {
+        "color": "#ffffff"
+      }
+    }
+  }
