@@ -1,321 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quanboard, where ideas and numbers meet!</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="./quanboard.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  
-  
+	
+	<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+		<link href="landing.css" rel="stylesheet">
+		<title>Quanboard, where ideas and numbers meet!</title>
+	</head>
+	<body>
+		<main>		
+			<div class="container">
+				<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between  mb-1">	
+					<div class="col-md-3 mb-2 mb-md-0">
+						<a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+							<svg class="quanboard-logo" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+						</a>
+						</div>
+							<ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+							<li><a href="#product" class="nav-link px-2">Product</a></li>
+							<li><a href="#resources" class="nav-link px-2">Resources</a></li>
+							<li><a href="#pricing" class="nav-link px-2">Pricing</a></li>
+							<li><a href="#about" class="nav-link px-2">About</a></li> 
+							</ul>
+						<div class="col-md-3 text-end">
+							<button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
+							<a href="#pricing" type="button" class="btn btn-primary">Buy now!</a>
+						</div>
+					</div>
+				</header>
+				<!-- Hero -->
+				<div class="conainer-fluid hero text-center">
+					<div style="font-size: 56px;">Where concepts and numbers meet!</div>
+					<div style="font-size: 36px;">Easily create, analyze, and share dynamic analytical models </div>
+					<div style="font-size: 36px;">of any idea, situation or bussiness.</div>
+					<button class="btn btn-primary" style="font-size: xx-large; margin-top: 20px;">Free trial!</button>
+				</div>
+						
+				<div class="conainer-fluid actions text-center">
+					<div class="container">
+						<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+							<div class="feature col">
+								<img src="https://via.placeholder.com/360x180" style="padding-top:0px; padding-bottom:20px;"class="img-fluid">
+								<h3 class="h4">Create conceptual + numerical models.</h3>
+								<p>Visually and intuitively build schemes of an idea, situation or business. Define quantitative relationships between your components and create powerful dynamic analytical models!</p>
+							</div>
+							<div class="feature col">
+								<img src="https://via.placeholder.com/360x180" style="padding-top:0px; padding-bottom:20px;"class="img-fluid">
+								<h3 class="h4">Analyze models visually and intuitively. </h3>
+								<p>Project your models in time and generate alternative possibilities, seeing graphically and instantly how your model works. Modify it at any time and generate infinite variants until you get what you want.</p>
+							</div>
+							<div class="feature col">
+								<img src="https://via.placeholder.com/360x180" style="padding-top:0px; padding-bottom:20px;"class="img-fluid">
+								<h3 class="h4">Co-create, share and communicate how an idea works.</h3>
+								<p>Involve others in creating and analyzing models in an understandable and dynamic way.</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-  
-  <style>
-    body {
-    justify-content:unset;
-    display: flex;
-    background-color: #333333;
-    color: #ffffff;
-    }
-    
-    .landing-header {
-    width: 100%;
-    height: 80px;
-    align-items: center;
-    display: grid;
-    }
+			<!-- Product --> 
+			
+				<div class="container-fluid" style="background-color: #ffffff;"  id="product">
+					<div class="container py-3">
+						<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+							<h1 class="display-4 fw-light" style="color: #333333">Product features</h1>
+							<p class="fs-5"style="color: #333333;"><b>Quanboard</b> adapts to your needs by offering a <b>FREE</b> starter version for individual users, a <B>PRO</B> version for users who demand more capabilities and need to be able to collaborate with other users, and a <b>TEAMS</b> solution for scalable work teams.</p>
+						</div>
+					</div>
+				</div>
+			
+			<!-- Resources --> 
+			
+			<div class="container-fluid" style="background-color: #919191;"  id="resources">
+				<div class="container py-3">
+					<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+						<h1 class="display-4 fw-light" style="color: #ffffff;">Resources</h1>
+						<p class="fs-5"style="color: #ffffff;"><b>Quanboard</b> adapts to your needs by offering a <b>FREE</b> starter version for individual users, a <B>PRO</B> version for users who demand more capabilities and need to be able to collaborate with other users, and a <b>TEAMS</b> solution for scalable work teams.</p>
+					</div>
+				</div>
+			</div>
+		
+			<!-- Pricing -->
 
-    .landing-hero {
-    display: block;
-    padding: 30px;
-    width: 100%;
-    height: 100%;
-    font-family:"Roboto Condensed", sans-serif;
-    font-weight: 100;
-    color: white;
-    background-size: cover;
-    background-image: url('./assets/greenboard.png'); 
-    background-repeat: no-repeat;
-    background-position: center; 
-    }
+			<div class="container py-3" id="pricing">
+				<div>
+					<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+					<h1 class="display-4 fw-light " style="color: #ffffff;">Pricing</h1>
+					<p class="fs-5 " style="color: #ffffff;"><b>Quanboard</b> adapts to your needs by offering a <b>FREE</b> starter version for individual users, a <B>PRO</B> version for users who demand more capabilities and need to be able to collaborate with other users, and a <b>TEAMS</b> solution for scalable work teams.</p>
+					</div>
+				</div>
 
-    .quanboard-logo {
-    width: 300px; 
-    height: 80px; 
-    background-image: url('./assets/quanboardLogoBlack.png'); 
-    border-color: #ffffff;
-    background-repeat: no-repeat;
-    background-position: center; 
-    background-size: contain;
-    opacity: 0.4;
-    }
+			
+				<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+				<div class="col">
+					<div class="card mb-4 rounded-3 shadow-sm">
+					<div class="card-header py-3">
+						<h4 class="my-0 fw-normal">FREE</h4>
+					</div>
+					<div class="card-body whiteboard">
+						<h1 class="card-title pricing-card-title">$0<small class="fw-light">/mo</small></h1>
+						<ul class="list-unstyled mt-3 mb-4">
+						<li>1 user</li>
+						<li>10 models*</li>
+						<li>No collaborative skill</li>
+						<li>Email support</li>
+						<li>Public</li>
+						</ul>
+						<button type="button" class="w-100 btn btn-lg btn-outline-secondary">Sign up for free</button>
+					</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card mb-4 rounded-3 shadow-sm">
+					<div class="card-header py-3">
+						<h4 class="my-0 fw-normal">PRO</h4>
+					</div>
+					<div class="card-body greenboard">
+						<h1 class="card-title pricing-card-title">$3.99<small class="fw-light">/mo</small></h1>
+						<ul class="list-unstyled mt-3 mb-4">
+						<li>1 user</li>
+						<li>Unlimited models**</li>
+						<li>Collaborative skill</li>
+						<li>Priority email support</li>
+						<li>Private</li>
+						</ul>
+						<button type="button" class="w-100 btn btn-lg btn-primary">Buy now!</button>
+					</div>
+					</div>
+				</div>
+					<div class="col">
+						<div class="card mb-4 rounded-3 shadow-sm">
+							<div class="card-header py-3">
+								<h4 class="my-0 fw-normal">TEAMS (+2 users)</h4>
+							</div>
+							<div class="card-body blackboard">
+								<h1 class="card-title pricing-card-title">$2.99<small class="fw-light">/mo</small></h1>
+								<ul class="list-unstyled mt-3 mb-4">
+									<li>Each user</li>
+									<li>Unlimited models**</li>
+									<li>Collaborative skill</li>
+									<li>Priority email support</li>
+									<li>Private</li>
+								</ul>
+								<button type="button" class="w-100 btn btn-lg btn-primary">Buy now!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<h2 class="display-6 text-center" style="color: #999999;"> <svg class="quanboard-small"></svg>Compare plans</h2>
 
-    .btn-primary {
-    background-color: rgb(204, 95, 31);
-    }
+				<div class="table-responsive">
+					<table class="pricing-table text-center">
+						<thead>
+							<tr>
+								<th style="width: 34%;"></th>
+								<th style="width: 22%;">FREE</th>
+								<th style="width: 22%;">PRO</th>
+								<th style="width: 22%;">TEAMS (+2 users)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row" class="text-start" >Public</th>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-start">Private</th>
+								<td></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+							</tr>
+						</tbody>
 
-    .btn-secondary {
-    background-color: rgb(55, 94, 50);
-    }
+						<tbody>
+							<tr>
+								<th scope="row" class="text-start">Colaborative Mode</th>
+								<td></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-start">Limited to 10 models</th>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td></td>
+								<td></td>
+							</tr> 
+							<tr>
+								<th scope="row" class="text-start">Unlimited models</th>
+								<td></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-start">Piority email support</th>
+								<td></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-start">Scalable solution</th>
+								<td></td>
+								<td></td>
+								<td><i class="bi bi-check-square-fill"></i></td>
+							</tr>
+							<tr>
+								<th scope="row" class="text-start">Storage quota limit</th>
+								<td>100MB</td>
+								<td>1GB</td>
+								<td>Scalable 1GB p/user</td>
+							</tr>
+						</tbody>
+					</table>
+				
+				</div>
+			</div>
+		
+			<!-- About -->
+			
+			<div class="container-fluid" style="background-color: #222222;"  id="about">
+				<div class="container py-3">
+					<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+					<h1 class="display-4 fw-light" style="color: #ffffff;">About Quanboard</h1>
+					<p class="fs-5"style="color: #ffffff;"><b>Quanboard</b> adapts to your needs by offering a <b>FREE</b> starter version for individual users, a <B>PRO</B> version for users who demand more capabilities and need to be able to collaborate with other users, and a <b>TEAMS</b> solution for scalable work teams.</p>
+				</div>
+			</div>
+		</main>
+		<!-- Footer-->	
+		
+			<footer class="container">
+				<div class="d-flex flex-wrap align-items-center py-3 my-4">
+				  <div class="col-md-4 d-flex align-items-center">
+					<a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+						<svg class="quanboard-small" width="40" height="32" role="img" aria-label="Quanboard-small"><use xlink:href="#quanboard-logo"></use></svg>
+					</a>
+					<div>© 2024 quanboard Inc</div>
+				  </div> 
 
-    .nav-link {
-    font-size: large;
-    margin-right: 20px ;
-    font-weight: 500;
-    color: #333333;
-    }
+				  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+					<div class="container text-left">
+						<h6>quanboard</h6>
+						<a href="https://x.com" class="btn btn-lg me-2" style="background-color: #555555; color: white;" target="_blank;">
+						  <i class="fab fa-x-twitter"></i>
+						</a>
+						<a href="https://facebook.com" class="btn btn-lg me-2" style="background-color: #555555; color: white;" target="_blank">
+						  <i class="fab fa-facebook"></i>
+						</a>
+						<a href="https://instagram.com" class="btn btn-lg me-2" style="background-color: #555555; color: white;" target="_blank">
+						  <i class="fab fa-instagram"></i>
+						</a>
+						<a href="https://tiktok.com" class="btn btn-lg" style="background-color: #555555; color: white;" target="_blank">
+						  <i class="fab fa-tiktok"></i>
+						</a>
+					  </div>
+				  </ul>
 
-    .nav-link:hover  {
-    color: #a1a1a1;
-    }
-
-    .h4 {
-      line-height: 1em;
-      padding: 0px;
-    }
-
-    .btn-outline-danger {
-    background-color: #ffffff;
-    color: #333333;
-    border-color: #ffffff;
-    }
-    
-    .btn-outline-danger:hover {
-    background-color: #555555;
-    color: #333333;
-    border-color: #ffffff;
-    }
-
-  </style>
-  
-</head>
-
-<body>
-<header class="bg-light">
-  <div class="container d-flex justify-content-between align-items-center" style="height: 90px;">
-      <div class="quanboard-logo"></div>
-      <a class="nav-link" href="#" id="About" style="margin-left: auto;">About us</a>
-      <a class="nav-link" href="#" id="Product">Product</a>
-      <a class="nav-link" href="#" id="Community">Community</a>
-      <a class="nav-link" href="#" id="Resources">Resources</a>
-      <a class="nav-link" href="#" id="Pricing">Pricing</a>
-
-      <div>
-          <button class="btn btn-primary">Buy Now!</button>
-          <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
-      </div>
-  </div>
-</header>
-
-<section class="bg-primary text-white text-center align-items-center">
-  <div class="landing-hero" >
-    <div style="font-size: 56px;">Where ideas and numbers meet!</div>
-    <div  style="font-size: 36px;">Easily create, analyze, and share dynamic analytical models </div>
-    <div  style="font-size: 36px;">of any idea, situation or bussiness.</div>
-    <p></p>
-    <button class="btn btn-primary" style="font-size: xx-large;">Free trial!</button>
-  </div>
-</section>
-
-<section class="container" style="align-content: left;">
-  <div class="row text-left">
-      <div class="col-md-4 mb-4">
-          <p></p>
-          <h3 class="h4">Create conceptual</h3>
-          <h3 class="h4">+ numerical models.</h3>
-          <img src="https://via.placeholder.com/360x180" style="padding-top:0px; padding-bottom:20px;"class="img-fluid">
-          <p>Visually and intuitively build schemes of an idea, situation or business.</p>
-          <p> Define quantitative relationships between your components and create powerful dynamic analytical models!</p>
-      </div>
-      <div class="col-md-4 mb-4">
-          <p></p>
-          <h3 class="h4">Analyze models visually</h3>
-          <h3 class="h4">and intuitively. </h3>
-          <img src="https://via.placeholder.com/360x180" style="padding-top:0px; padding-bottom:20px;" class="img-fluid">
-          <p>Project your models in time and generate alternative possibilities, seeing graphically and instantly how your model works.</p>
-          <p>Modify it at any time and generate infinite variants until you get what you want.</p>
-      </div>
-      <div class="col-md-4 mb-4">
-          <p></p>
-          <h3 class="h4">Co-create, share</h3>
-          <h3 class="h4">and communicate models.</h3>
-          <img src="https://via.placeholder.com/360x180" style="padding-top:0px; padding-bottom:20px;" class="img-fluid">
-          <p>Involve others in creating and analyzing models.</p>
-          <p>Show how your ideas work in an understandable and dynamic way.</p>
-      </div>
-
-  </div>
-</section>
-<hr>
-
-  <section class="container">
-    <div class="row text-left">
-      <h2>Cases</h2>
-      <p></p>
-      <!-- CASE 2--> 
-      <div class="col-md-3 mb-4">
-            <img src="https://via.placeholder.com/300x150" class="img-fluid">
-      </div>
-      <!-- CASE 1-->
-      <div class="col-md-9 mb-4">
-          <h3 class="h4">Cupcake factory business model</h3>
-          <p> Define quantitative relationships between your components and create powerful dynamic analytical models!</p>
-          <button class="btn btn-secondary">Go!</button>
-      </div>
-      <hr>
-      <!-- CASE 2-->
-      <div class="col-md-3 mb-4">
-        <img src="https://via.placeholder.com/300x150" class="img-fluid">
-      </div>
-      <div class="col-md-9 mb-4">
-          <h3 class="h4">Location of guests at wedding tables according to their affinity</h3>
-          <p> Define quantitative relationships between your components and create powerful dynamic analytical models!</p>
-          <button class="btn btn-secondary">Go!</button>
-      </div>
-      <hr>
-      <!-- CASE 3-->
-      <div class="col-md-3 mb-4">
-        <img src="https://via.placeholder.com/300x150" class="img-fluid">
-      </div>
-      <div class="col-md-9 mb-4">
-          <h3 class="h4">Looking for a collective financing model for the Club.</h3>
-          <p> Define quantitative relationships between your components and create powerful dynamic analytical models!</p>
-          <button class="btn btn-secondary">Go!</button>
-      </div>
-      <hr>
-       <!-- CASE 4-->
-      <div class="col-md-3 mb-3">
-        <img src="https://via.placeholder.com/300x150" class="img-fluid">
-      </div>
-      <div class="col-md-9 mb-4">
-          <h3 class="h4">How much of your personal finances goes to things you like?.</h3>
-          <p> Define quantitative relationships between your components and create powerful dynamic analytical models!</p>
-          <button class="btn btn-secondary">Go!</button>
-      </div>
-      <hr>
-    </div> 
-
-
-    <div class="row text align-items-center">
-
-      <div class="col-md-4 mb-4">
-    
-        <!-- LENGUAGES -->
-        <div class="dropdown">
-          <button 
-              class="btn btn-secondary dropdown-toggle" 
-              type="button" 
-              id="languageDropdown" 
-              data-bs-toggle="dropdown" 
-              aria-expanded="false">
-              Lenguage
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-              <li><a class="dropdown-item" href="#">Español</a></li>
-              <li><a class="dropdown-item" href="#">English</a></li>
-              <li><a class="dropdown-item" href="#">Português</a></li>
-          </ul>
-        </div>
-      </div>
-  
-  <div class="col-md-4 mb-4">
-    
-    <div class="container text-left">
-      <h6>quanboard</h6>
-      <a href="https://x.com" class="btn btn-lg me-2" style="background-color: #555555; color: white;" target="_blank;">
-        <i class="fab fa-x-twitter"></i>
-      </a>
-      <a href="https://facebook.com" class="btn btn-lg me-2" style="background-color: #555555; color: white;" target="_blank">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://instagram.com" class="btn btn-lg me-2" style="background-color: #555555; color: white;" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://tiktok.com" class="btn btn-lg" style="background-color: #555555; color: white;" target="_blank">
-        <i class="fab fa-tiktok"></i>
-      </a>
-    </div>
-  </div>
-
-  
-  <div class="col-md-4 mb-4">
-    
-    <div class="container text-left">
-      <h6>download our app</h6>
-      <div class="d-flex justify-content-left gap-3">  
-        <!-- Google Play Button -->
-        <a href="https://play.google.com/store" target="_blank" class="d-inline-block">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-              alt="Get it on Google Play" 
-              style="height: 50px;">
-        </a>
-        <!-- App Store Button -->
-        <a href="https://www.apple.com/app-store/" target="_blank" class="d-inline-block">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
-              alt="Download on the App Store" 
-              style="height: 50px;">
-        </a>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<p></p>
-
-  <div>
-    <h6 style="text-align: center"> (c) Quanboard LLC - 2024 - All rights reserved</h6>
-  </div>
-
+				  <ul class="nav col-md-4 align-items-center d-flex">
+					<h6 style="margin-left:100px;">Download our app</h6>
+						<div class="container d-flex justify-content-end">
+							
+						    <!-- Google Play Button -->
+							<a href="https://play.google.com/store" target="_blank" class="d-inline-block">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+									alt="Get it on Google Play" 
+									style="height: 50px; margin-right: 5px;">
+							</a>
+							<!-- App Store Button -->
+							<a href="https://www.apple.com/app-store/" target="_blank" class="d-inline-block">
+								<img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+									alt="Download on the App Store" 
+									style="height: 50px; margin-right: 0px;">
+							</a>
+					  	</div>
+				  </ul>
+				</div>
+			</footer>
+		
+	</body>
+	
+	<!-- Modal Log in-->
+	<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 style="font-weight: 100;">LOG IN</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<!-- Username and Password Login Form -->
+					<form>
+						<div class="mb-3">
+							<label for="username" class="form-label">Username or Email</label>
+							<input type="text" class="form-control" id="username" placeholder="Enter your username or email">
+						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">Password</label>
+							<input type="password" class="form-control" id="password" placeholder="Enter your password">
+						</div>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="form-check d-flex align-items-center">
+								<input type="checkbox" class="form-check-input d-flex" id="rememberMe" style="margin-top:0px">
+								<label class="form-check-label" style="padding-left:8px">Remember me</label>
+							</div>
+							<a href="#" class="text-decoration-none" style="color: #aaaaaa">Forgot your password?</a>
+						</div>
+							<button id="login-submit" type="button" class="btn btn-primary w-100 mt-3">Log in</button>
+					</form>
+		
+					<!-- Google Login Option -->
+					<hr class="my-4">
+						<div class="d-grid">
+							<button type="button" class="btn btn-outline-danger">
+							<i class="fab fa-google me-2"></i> Log in with Google
+							</button>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<p class="text-center w-100 mb-0" style="padding-right:8px">Don't have an account?<a href="#" class="btn btn-outline"  style="color: #aaaaaa;">Create</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- JS de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<!-- Modal Log in-->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">LOG IN</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Username and Password Login Form -->
-        <form>
-          <div class="mb-3">
-            <label for="username" class="form-label">Username or Email</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter your username or email">
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter your password">
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="form-check d-flex align-items-center">
-              <input type="checkbox" class="form-check-input d-flex" id="rememberMe" style="margin-top:0px">
-              <label class="form-check-label" style="padding-left:8px">Remember me</label>
-            </div>
-            <a href="#" class="text-decoration-none" style="color: #aaaaaa">Forgot your password?</a>
-          </div>
-          <button type="submit" class="btn btn-primary w-100 mt-3">Log in</button>
-        </form>
-
-        <!-- Google Login Option -->
-        <hr class="my-4">
-        <div class="d-grid">
-          <button type="button" class="btn btn-outline-danger">
-            <i class="fab fa-google me-2"></i> Log in with Google
-          </button>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <p class="text-center w-100 mb-0" style="padding-right:8px">Don't have an account?<a href="#" class="btn btn-outline"  style="color: #aaaaaa;">Create</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
 </html>
+

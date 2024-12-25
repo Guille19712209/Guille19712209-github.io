@@ -1,0 +1,162 @@
+
+
+body {
+    font-family:"Roboto Condensed", sans-serif;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.hero {
+    font-family:"Roboto Condensed", sans-serif;
+    display: block;
+    width: 80%;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    font-weight: 100;
+    color: white;
+    background-size: cover;
+    background-image: url('./assets/greenboard.png'); 
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.greenboard {
+    background-size: cover;
+    background-image: url('./assets/greenboard.png'); 
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: #ffffff;
+}
+
+.whiteboard {
+    background-size: cover;
+    background-image: url('./assets/whiteboard.png'); 
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.blackboard {
+    background-size: cover;
+    background-image: url('./assets/blackboard.png'); 
+    background-repeat: no-repeat;
+    background-position: center; 
+    color: #ffffff;
+}
+
+.actions {
+    font-family:"Roboto Condensed", sans-serif;
+    display: block;
+    width: 80%;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    font-weight: 100;
+    background-color: #4b4b4b;
+    color: white;
+}
+
+.quanboard-logo {
+    width: 300px; 
+    height: 80px; 
+    background-image: url('./assets/quanboardLogo.png'); 
+    border-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: contain;
+    opacity: 0.8;
+}
+
+.quanboard-small {
+    width: 50px; 
+    height: 50px; 
+    background-image: url('./assets/logo-white.png'); 
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: contain;
+    opacity: 0.8;
+    padding: 10px;
+    margin: 10px;
+}
+
+.nav-link {
+    font-family:"Roboto Condensed", sans-serif;
+    font-size: large;
+    font-weight: 500;
+    color: #999999;
+    padding-left: 10px;
+    margin-left: 0px;
+}
+    
+.nav-link:hover {
+    color: #cccccc;
+}
+
+.btn-primary {
+    font-family:"Roboto Condensed", sans-serif;
+    font-weight: 300;
+    background-color: rgb(204, 95, 31);
+    border-width: 1px;
+    border-color: #ffffff;
+}
+    
+.btn-secondary {
+    font-family:"Roboto Condensed", sans-serif;
+    font-weight: 300;
+    background-color: rgb(55, 94, 50);
+    border-width: 1px;
+    border-color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary::after {
+    background-color: #a1a1a1;
+    border-color: #ffffff;
+}
+        
+.btn-secondary:hover, .btn-primary:after {
+    background-color: #a1a1a1;
+    border-color: #ffffff;
+}
+
+p {
+    font-family:"Roboto Condensed", sans-serif;
+    font-size: large;
+    font-weight: 300;
+}
+
+.container {
+    font-family:"Roboto Condensed", sans-serif;
+}
+
+table {
+    background-color: #4b4b4b;
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+ 
+}
+
+th, td {
+    font-family:"Roboto Condensed", sans-serif;
+    font-weight: 300;
+    border-bottom: 1px solid rgb(255, 255, 255); 
+    padding: 10px;
+    text-align: center;
+}
+
+
+.btn-outline-danger {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #ffffff;
+    }
+    
+.btn-outline-danger:hover {
+    background-color: #555555;
+    color: #333333;
+    border-color: #ffffff;
+    }
+
+.modal-content, .modal-hedaer, .modal-body, .modal-footer {
+    background-color: #333333;
+}
